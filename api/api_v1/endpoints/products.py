@@ -1,8 +1,9 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, Form
+from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, Form
 from sqlalchemy.orm import Session
-from typing import List
+from typing import List, Optional
 
 from api.deps import get_db
+from models.products import Products
 from schemas.product import ProductCreate, ProductInDB
 from crud.crud_product import product
 from utils.digital_ocean_spaces import upload_to_spaces, delete_upload
@@ -57,7 +58,3 @@ async def add_new_product(
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f'{e}')  
-
-@router.get("", status_code=200, response_class=ProductInDB)  
-async def func():
-    pass     
