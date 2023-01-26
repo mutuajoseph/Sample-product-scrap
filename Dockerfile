@@ -1,5 +1,5 @@
-# FROM tiangolo/uvicorn-gunicorn:python3.8-slim
-FROM python:3.10
+FROM tiangolo/uvicorn-gunicorn:python3.8-slim
+# FROM python:3.10
 
 # set env variables
 ENV PYTHONDONTWRITEBYTECODE 1
