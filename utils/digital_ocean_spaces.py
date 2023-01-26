@@ -59,7 +59,7 @@ async def upload_to_spaces(file):
 
         transfer.upload_file(file_to_upload, settings.DOS_NAME_OF_BUCKET, 
                             settings.DOS_CURRENT_UPLOAD_FOLDER + "/" + file.filename, 
-                            extra_args={'ContentType': 'application/pdf', 'ACL': 'public-read'})
+                            extra_args={'ContentType': 'image', 'ACL': 'public-read'})
 
         # this makes the file you are specifically uploaded public by default
         response = client.put_object_acl(ACL='public-read', Bucket=settings.DOS_NAME_OF_BUCKET,

@@ -4,15 +4,15 @@ services:
 
   backend:
     build:
-      context: ./products-backend
+      context: .
       dockerfile: Dockerfile
     container_name: products-backend
     command: bash -c "alembic upgrade head && uvicorn main:app --reload --workers 1 --host 0.0.0.0"
     restart: always
     volumes:
-      - ./products-backend:/app/
+      - ./:/app/
     env_file:
-      - ./products-backend/.env
+      - ./.env
     ports:
       - 8008:8000
     depends_on:
@@ -23,10 +23,10 @@ services:
     image: postgres
     volumes:
       - pgdata:/var/lib/postgresql/data/
-    container_name: db
+    container_name: dbase
     restart: always
     env_file:
-      - ./products-backend/.postgres
+      - ./.postgres
 
 volumes:
   pgdata: {}
