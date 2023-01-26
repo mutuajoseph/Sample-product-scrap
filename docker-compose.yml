@@ -14,7 +14,7 @@ services:
     env_file:
       - ./products-backend/.env
     ports:
-      - 8000:8000
+      - 8008:8000
     depends_on:
       - db
 
